@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Construsafe</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Bem-vindo, {{ user }}</h2>
+    <a href="/add">Registrar Ocorrência</a> |
+    <a href="/epi">Entregar EPI</a> |
+    <a href="/logout">Sair</a>
+
+    <h3>Minhas Ocorrências</h3>
+    <table border="1" width="100%">
+        <tr><th>Data</th><th>Local</th><th>Tipo</th><th>Descrição</th></tr>
+        {% for o in occurrences %}
+        <tr>
+            <td>{{ o[2] }}</td><td>{{ o[3] }}</td><td>{{ o[4] }}</td><td>{{ o[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Gráfico de Ocorrências por Tipo</h3>
+    <canvas id="occurrenceChart" width="400" height="200"></canvas>
+</div>
+
+<script>
+    const ctx = document.getElementById('occurrenceChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ chart_labels|safe }},
+            datasets: [{
+                label: 'Ocorrências',
+                data: {{ chart_data|safe }},
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+</script>
+</body>
+</html>

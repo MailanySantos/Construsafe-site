@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrega de EPI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Registrar Entrega de EPI</h2>
+    <form method="POST">
+        <input type="date" name="date" required><br>
+        <input type="text" name="item" placeholder="Tipo de EPI (ex: Capacete)" required><br>
+        <input type="number" name="quantity" placeholder="Quantidade" required><br>
+        <textarea name="note" placeholder="Observações (opcional)"></textarea><br>
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="/dashboard">Voltar ao Dashboard</a>
+</div>
+</body>
+</html>

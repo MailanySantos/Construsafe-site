@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Construsafe</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login Construsafe</h2>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Usuário" required><br>
+            <input type="password" name="password" placeholder="Senha" required><br>
+            <button type="submit">Entrar</button>
+        </form>
+        {% if error %}<p style="color:red;">{{ error }}</p>{% endif %}
+    </div>
+</body>
+</html>

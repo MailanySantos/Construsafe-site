@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Ocorrência</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Registrar Ocorrência</h2>
+    <form method="POST">
+        <input type="date" name="date" required><br>
+        <input type="text" name="location" placeholder="Local" required><br>
+        <select name="type" required>
+            <option value="">Tipo de ocorrência</option>
+            <option value="Queda">Queda</option>
+            <option value="Choque">Choque</option>
+            <option value="Falta de EPI">Falta de EPI</option>
+            <option value="Outros">Outros</option>
+        </select><br>
+        <textarea name="description" placeholder="Descrição" required></textarea><br>
+        <button type="submit">Salvar</button>
+    </form>
+</div>
+</body>
+</html>
